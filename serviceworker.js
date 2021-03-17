@@ -1,14 +1,14 @@
 const CACHE_NAME = "wikipedia-around-v1";
 
 const ASSETS = [
-  "/",
-  "/index.html",
-  "/style.css",
-  "/script.js",
-  "/favicon.svg",
-  "/fallback.svg",
-  "/manifest.webmanifest",
-  "https://cdn.glitch.com/839bbeb7-1cc6-4801-a6ae-3c66ed884eea%2Ffavicon.png?v=1615934983977"
+  "./",
+  "./index.html",
+  "./style.css",
+  "./script.js",
+  "./favicon.svg",
+  "./favicon.png",  
+  "./fallback.svg",
+  "./manifest.webmanifest"
 ];
 
 const HEADERS = {
@@ -100,11 +100,11 @@ self.addEventListener("fetch", function(event) {
             break;
           case "image":
             if (request.url.endsWith("favicon.svg")) {
-              return caches.match("/favicon.svg");
+              return caches.match("./favicon.svg");
             } else if (request.url.endsWith("favicon.png")) {
-              return caches.match("/favicon.png");
+              return caches.match("./favicon.png");
             }
-            return caches.match("/fallback.svg");
+            return caches.match("./fallback.svg");
             break;
           case "":
             const url = new URL(request.url);
