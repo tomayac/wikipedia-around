@@ -14,8 +14,8 @@
       "type": "image/png"
     }    
   ],
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "background_color": "black",
   "theme_color": "#0069ed",
   "orientation": "portrait",
