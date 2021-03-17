@@ -160,7 +160,7 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
     try {
       const registration = await navigator.serviceWorker.register(
-        "/serviceworker.js"
+        "./serviceworker.js"
       );
       console.log("📍", "Service Worker registered.", registration);
     } catch (err) {
