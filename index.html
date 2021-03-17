@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0069ed" />
+
+    <title>Wikipedia Around</title>
+
+    <script>
+      if (!isSecureContext) {
+        location.protocol = "https:";
+      }
+    </script>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.com/839bbeb7-1cc6-4801-a6ae-3c66ed884eea%2Ffavicon.png?v=1615934983977"
+      type="image/png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://cdn.glitch.com/839bbeb7-1cc6-4801-a6ae-3c66ed884eea%2Ffavicon.png?v=1615934983977"
+    />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <script src="/script.js" type="module"></script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <img src="/favicon.svg" width="10" height="10" alt="" /> Wikipedia
+        Around
+      </h1>
+    </header>
+    <form>
+      <button class="position" type="button">
+        Get current position
+      </button>
+    </form>
+    <div>
+      <span class="geocode">Planet Earth</span>
+    </div>
+    <div>
+      <span class="latitude">Unknown latitude</span> /
+      <span class="longitude">longitude</span>
+    </div>
+    <div>
+      <img
+        class="map"
+        alt="Map showing the detected location."
+        width="400"
+        height="300"
+        srcset="
+          https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/-73.7638,42.6564,0,0/400x300@2x?access_token=pk.eyJ1IjoidG9tYXlhYyIsImEiOiJja204dngyMnMxYzEyMm9ueHk1eGphaXo0In0.IBTInBOvz3B4jyaNSxOmnQ&logo=false 2x
+        "
+      />
+    </div>
+    <ul class="articles"></ul>
+  </body>
+</html>

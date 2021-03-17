@@ -1,0 +1,157 @@
+:root {
+  color-scheme: dark light;
+  font-family: system-ui, sans-serif;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  width: 600px;
+  max-width: calc(100% - 1rem);
+  padding: .5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+  }
+}
+
+h1,
+h2 {
+  color: darkblue;
+  background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  h1,
+  h2 {
+    color: yellow;
+    background-color: black;
+    padding-block: 0.5rem;        
+  }
+}
+
+h1 {
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+h1 > img {
+  height: 1.25rem;
+  width: auto;
+  vertical-align: middle;
+}
+
+h2 {
+  font-size: 1.1rem;
+  position: sticky;
+  top: 2rem;
+  z-index: 1;
+}
+
+a {
+  color: red;
+}
+
+a:after {
+  width: 12px;
+  height: 12px;
+  content: "";
+  display: inline-block;
+  margin-inline-start: 0.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.0' width='12' height='12'%3E%3Cpath fill='%23fff' stroke='%2306c' d='M1.5 4.5h6v6h-6z'/%3E%3Cpath d='M4 2.5l1 1 .25.75-2.5 2.25L5.5 9.25l2.25-2.5.75.25 1 1L11 6.5V1H5.5L4 2.5z' fill='%2306f' fill-rule='evenodd'/%3E%3Cpath d='M6 2h4v4l-.5.75-1.25-2-3 3.25L4 6.75l3.25-3-2-1.25L6 2z' fill='%23fff' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+header,
+div,
+form,
+li {
+  margin-block-end: 1rem;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  background: #0069ed;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  background: #0053ba;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+button[disabled] {
+  cursor: progress;
+  color: gray;
+}
+
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+li {
+  padding: 0.25rem;
+}
+
+li {
+  background-color: rgba(0 0 0 / 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  li {
+    background-color: rgba(0 0 0 / 0.9);
+  }
+}
+
+.latitude,
+.longitude {
+  font-variant-numeric: tabular-nums;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.position.offline:after {
+  content: "(Offline)";  
+}
+
+.position.offline {
+  cursor: not-allowed;
+}
