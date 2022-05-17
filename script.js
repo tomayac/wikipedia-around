@@ -30,7 +30,7 @@ const updateLabels = (latitude, longitude) => {
 };
 
 const geocode = async (latitude, longitude) => {
-  const url = `https://reverse-geocoder.glitch.me/geocode?latitude=${latitude}&longitude=${longitude}&maxResults=1`;
+  const url = `https://local-reverse-geocoder.glitch.me/geocode?latitude=${latitude}&longitude=${longitude}&maxResults=1`;
   try {
     const response = await fetch(url);
     if (!response.ok || response.status !== 200) {
