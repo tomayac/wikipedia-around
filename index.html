@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0069ed" />
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0069ed">
     <title>Wikipedia Around</title>
-
     <script>
       if (!isSecureContext) {
         location.protocol = "https:";
       }
     </script>
-
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="./favicon.png" type="image/png" />
-    <link rel="apple-touch-icon" href="./favicon.png" />
-    <link rel="manifest" href="./manifest.webmanifest" />
-
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="./favicon.png">
+    <link rel="manifest" href="./manifest.webmanifest">
     <script src="./script.js" type="module"></script>
   </head>
   <body>
     <header>
       <h1>
-        <img src="./favicon.svg" width="10" height="10" alt="" /> Wikipedia
+        <img src="./favicon.svg" width="10" height="10" alt="">
+        Wikipedia
         Around
       </h1>
     </header>
@@ -37,7 +34,8 @@
       <span class="geocode">Planet Earth</span>
     </div>
     <div>
-      <span class="latitude">Unknown latitude</span> /
+      <span class="latitude">Unknown latitude</span>
+      /
       <span class="longitude">longitude</span>
     </div>
     <div>
@@ -46,10 +44,8 @@
         alt="Map showing the detected location."
         width="400"
         height="300"
-        srcset="
-          https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/-73.7638,42.6564,0,0/400x300@2x?access_token=pk.eyJ1IjoidG9tYXlhYyIsImEiOiJja204dngyMnMxYzEyMm9ueHk1eGphaXo0In0.IBTInBOvz3B4jyaNSxOmnQ&logo=false 2x
-        "
-      />
+        srcset="https://maps.googleapis.com/maps/api/staticmap?center=0,0&zoom=1&size=400x300&maptype=roadmap&key=AIzaSyBWZnCRi6oar3MTjR0HkR1lK52_mTe0Rks&format=png&visual_refresh=true&scale=2 2x"
+      >
     </div>
     <ul class="articles"></ul>
   </body>

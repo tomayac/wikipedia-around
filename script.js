@@ -30,25 +30,33 @@ const updateLabels = (latitude, longitude) => {
 };
 
 const geocode = async (latitude, longitude) => {
-  const url = `https://local-reverse-geocoder.glitch.me/geocode?latitude=${latitude}&longitude=${longitude}&maxResults=1`;
+  const url = `https://local-reverse-geocoder.tomayac.com/geocode?latitude=${latitude}&longitude=${longitude}&maxResults=1`;
   try {
     const response = await fetch(url);
     if (!response.ok || response.status !== 200) {
       throw new Error(`Fetch failed (${response.status})`);
     }
     const json = await response.json();
-    geocodeSpan.textContent = `${json[0][0].name}, ${json[0][0].admin1Code.name}`;
+    geocodeSpan.textContent = `${json[0][0].name}${json[0][0].admin1Code.name ? `, ${json[0][0].admin1Code.name}` : ''}`;
   } catch (error) {
     console.error(error.name, error.message);
   }
 };
 
 const updateMap = (latitude, longitude) => {
-  const mapUrl = `https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/pin-s-heart+ec0e0e(${longitude},${latitude})/${longitude},${latitude},14,0/400x300@2x?access_token=pk.eyJ1IjoidG9tYXlhYyIsImEiOiJja204dngyMnMxYzEyMm9ueHk1eGphaXo0In0.IBTInBOvz3B4jyaNSxOmnQ&logo=false`;
+  const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?autoscale=1&size=400x300&maptype=roadmap&key=AIzaSyBWZnCRi6oar3MTjR0HkR1lK52_mTe0Rks&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:%7C${latitude},${longitude}&scale=2`;
   mapImg.srcset = `${mapUrl} 2x`;
 };
 
 const listArticles = async articles => {
+  const noArticles = !articles.length;
+  if (noArticles) {
+    articles .push({
+      title: "Nothing around has a Wikipedia article",
+      extract: "See something interesting? Write about it!",
+    })
+  }
+
   const fragment = document.createDocumentFragment();
   for (const article of articles) {
     const li = document.createElement("li");
@@ -63,9 +71,9 @@ const listArticles = async articles => {
       li.append(p);
 
       const a = document.createElement("a");
-      a.textContent = "Read more";
+      a.textContent = noArticles ? "Learn how" : "Read more";
       a.target = "_blank";
-      a.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(
+      a.href = noArticles ? 'https://en.wikipedia.org/wiki/Help:Your_first_article' : `https://en.wikipedia.org/wiki/${encodeURIComponent(
         article.title
       )}`;
       li.append(a);

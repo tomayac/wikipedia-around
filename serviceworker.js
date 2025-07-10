@@ -6,7 +6,7 @@ const ASSETS = [
   "./style.css",
   "./script.js",
   "./favicon.svg",
-  "./favicon.png",  
+  "./favicon.png",
   "./fallback.svg",
   "./manifest.webmanifest"
 ];
@@ -77,7 +77,7 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", function(event) {
-  
+
   event.respondWith(
     (async () => {
       const request = event.request;
