@@ -30,7 +30,7 @@ const updateLabels = (latitude, longitude) => {
 };
 
 const geocode = async (latitude, longitude) => {
-  const url = `https://local-reverse-geocoder.tomayac.com/geocode?latitude=${latitude}&longitude=${longitude}&maxResults=1`;
+  const url = `https://us-central1-web-devrel-apps.cloudfunctions.net/local_reverse_geocoder/geocode?latitude=${latitude}&longitude=${longitude}&maxResults=1`;
   try {
     const response = await fetch(url);
     if (!response.ok || response.status !== 200) {
